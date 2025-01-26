@@ -4,50 +4,305 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flowers Don't Die</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+            --section-padding: 4rem 2rem;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
         }
 
         header {
-            background-color: #4CAF50;
-            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+        }
+
+        .main-title {
+            font-size: 4rem;
+            margin: 2rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .hero-text {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .highlight-text {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--text-color);
+            margin: 0.5rem 0;
+            transition: transform 0.3s;
+        }
+
+        .highlight-text:hover {
+            transform: scale(1.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem;
         }
 
         nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            gap: 2rem;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
         }
 
         main {
-            padding: 20px;
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
         }
 
-        h1, h2 {
-            color: #4CAF50;
+        section {
+            padding: var(--section-padding);
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-        .equal-width {
-            width: 80%; /* Set to your desired width */
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .app-showcase {
+            margin: 3rem 0;
+        }
+
+        .app-banner, .app-screens {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .app-banner:hover, .app-screens:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .app-banner, .app-screens {
+                max-width: 100%;
+                padding: 0 1rem;
+                margin: 1rem auto;
+            }
+        }
+
+        iframe, embed, video {
+            width: 100%;
+            max-width: 1000px;
+            height: 600px;
+            margin: 3rem auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        ul {
+            list-style-position: inside;
+            margin: 1rem 0;
+        }
+
+        ul li {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .main-nav {
+            margin-left: auto;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .pricing-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .price-box {
+            flex: 1;
+            max-width: 300px;
+            padding: 2rem;
+            background: linear-gradient(145deg, #ffffff, #e8f5e9);
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .price-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+        }
+
+        .price-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .price-box p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-boxes {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .price-box {
+                width: 100%;
+            }
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            padding: 2rem;
+            background: #e8f5e9;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.15);
+        }
+
+        .feature-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .feature-item p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
+        <div class="logo">Coding Flora</div>
+        <nav class="main-nav">
             <ul>
                 <li><a href="#home">主页</a></li>
                 <li><a href="#about">关于</a></li>
@@ -55,72 +310,104 @@
             </ul>
         </nav>
     </header>
+
     <main>
-        <section id="home">
-            <h1>Flowers Don't Die:《力扣种花人》(v2.0)</h1>
-            <h3>AI锻炼新算法质生产力</h3>
-            <img src="assets/app_banner_v2.png" alt="App" class="equal-width">
-            <img src="assets/app_screens_v2.png" alt="App Screens" class="equal-width">
-
-            <p>2分钟演示视频（B站： https://www.bilibili.com/video/BV1Q6421Z73a/）</p>
-            <iframe src="https://player.bilibili.com/player.html?bvid=BV1Qy411q7QM&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 80%; height: 450px; display: block;"> </iframe>
-            <!-- <p>B站打不开？可看原始视频</p>
-            <video controls style="width: 80%; height: 450px; display: block; ">
-                <source src="assets/app_video_v2.MOV" type="video/quicktime">
-                您的浏览器不支持视频标签。
-            </video> -->
-
-            <p>查看PDF计划书 (v2.0)：<a href="assets/ppt_pdf/路演_ai4.pdf" target="_blank">(打不开，点击这里)</a></p>
-            <embed src="assets/ppt_pdf/路演_ai4.pdf" type="application/pdf" width="80%" height="550px" style="display: block;" />
+        <section id="home" class="animate__animated animate__fadeIn">
+            <h1 class="main-title">Coding Flora</h1>
+            <div class="hero-text">
+                <h2 class="highlight-text">AI锻炼</h2>
+                <h2 class="highlight-text">新算法质生产力</h2>
+            </div>
             
+            <img src="/assets/app banner v3.jpg" alt="App Banner" class="app-banner">
+            <img src="/assets/app_screens_v2.png" alt="App Screens" class="app-screens">
+            <div class="video-container">
+                <iframe src="https://player.bilibili.com/player.html?bvid=BV1Q6421Z73a&page=1" 
+                        scrolling="no" 
+                        frameborder="no" 
+                        framespacing="0" 
+                        allowfullscreen="true">
+                </iframe>
+            </div>
 
-            <br>
+            <div class="pdf-container">
+                <h3>项目计划书 (v2.0)</h3>
+                <p class="pdf-link">
+                    <a href="assets/ppt_pdf/路演_ai4.pdf" target="_blank" class="download-link">
+                        下载PDF版本
+                    </a>
+                </p>
+                <embed src="assets/ppt_pdf/路演_ai4.pdf" 
+                       type="application/pdf" 
+                       class="pdf-embed" 
+                       width="100%" 
+                       height="600px" />
+            </div>
 
+            <div class="pricing-boxes">
+                <div class="price-box">
+                    <div class="price-icon">💰</div>
+                    <h3>价格实惠</h3>
+                    <p>免费开始使用，按需升级</p>
+                </div>
+                <div class="price-box">
+                    <div class="price-icon">⏰</div>
+                    <h3>时间灵活</h3>
+                    <p>随时学习，进度自控</p>
+                </div>
+                <div class="price-box">
+                    <div class="price-icon">📱</div>
+                    <h3>随时可用</h3>
+                    <p>多平台支持，随时学习</p>
+                </div>
+            </div>
 
-
-            <h1>Flowers Don't Die:《力扣种花人》(v1.0)</h1>
-            <h3>边刷题，边种花，AI帮你每天五分钟进大厂</h3>
-            <img src="assets/app_banner_v1.jpg" alt="App" class="equal-width">
-            <img src="assets/app_screens_v1.png" alt="App Screens" class="equal-width">
-
-            <p>1分30秒的视频展示（B站： https://www.bilibili.com/video/BV1BS421d7oC/）</p>
-
-            <video controls style="width: 80%; height: 450px; display: block; ">
-                <source src="assets/videos/app_video_v1.MOV" type="video/quicktime">
-                您的浏览器不支持视频标签。
-            </video>
-            <p>准备好提升你的编程技能了吗？Flowers Don't Die 是你的终极伙伴，利用AI的力量帮助你掌握算法！</p>
-            
-
-            <p>查看PDF计划书：<a href="assets/ppt_pdf/项目计划书_v1.pdf" target="_blank">(打不开，点击这里)</a></p>
-            <embed src="assets/ppt_pdf/项目计划书_v1.pdf" type="application/pdf" width="80%" height="550px" style="display: block;" />
-            
-            
-
-
-            <h2>主要功能：</h2>
-            <ul>
-                <li>个性化的AI复习</li>
-                <li>培育你的算法花园</li>
-                <li>窥探他人的花园</li>
-                <li>挑战和竞争</li>
-            </ul>
-            
-            <p>今天就下载 Flowers Don't Die，开始绽放你的编程技能吧！（在苹果商店美区已上架）</p>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>个性化的AI复习</h3>
+                    <p>利用AI技术为您定制个性化学习计划</p>
+                </div>
+                <div class="feature-item">
+                    <h3>培育算法花园</h3>
+                    <p>将学习过程可视化，让进步更有成就感</p>
+                </div>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>社区互动</h3>
+                    <p>与其他学习者分享经验，共同成长</p>
+                </div>
+                <div class="feature-item">
+                    <h3>挑战模式</h3>
+                    <p>通过有趣的挑战提升算法能力</p>
+                </div>
+            </div>
         </section>
 
-        <section id="about">
+        <section id="about" class="animate__animated animate__fadeIn">
             <h2>关于 Flowers Don't Die</h2>
-            <p>Flowers Don't Die 是一款利用AI技术的学习应用，旨在帮助你掌握算法，提升编程技能。通过个性化复习、游戏化学习体验和同伴见解，Flowers Don't Die 让你的学习之旅既有趣又高效。</p>
+            <p>Flowers Don't Die 是一款创新的AI驱动学习应用，致力于让算法学习变得更加有趣和高效。我们将游戏化元素与专业的学习内容完美结合，为您打造一个独特的学习体验。</p>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="animate__animated animate__fadeIn">
             <h2>联系我们</h2>
-            <p>如果你需要帮助或有任何问题或反馈，请随时联系我们：</p>
-            <ul>
-                <li>电子邮件: faradawny@gmail.com</li>
-            </ul>
+            <p>我们期待听到您的声音！如有任何问题或建议，请通过以下方式联系我们：</p>
+            <p>📧 电子邮件: faradawny@gmail.com</p>
         </section>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
