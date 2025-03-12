@@ -432,6 +432,54 @@
             margin: 0 auto;
         }
     }
+
+    .deadline-banner {
+        background: linear-gradient(135deg, #6ab04c, #4CAF50);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        text-align: center;
+        margin: 2rem auto;
+        max-width: 800px;
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        transition: transform 0.3s ease;
+    }
+
+    .deadline-banner:hover {
+        transform: translateY(-5px);
+    }
+
+    .deadline-text {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .deadline-subtext {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .deadline-link {
+        color: white;
+        text-decoration: underline;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .deadline-link:hover {
+        color: #e8f5e9;
+    }
+
+    @media (max-width: 768px) {
+        .deadline-text {
+            font-size: 1.4rem;
+        }
+        
+        .deadline-subtext {
+            font-size: 1rem;
+        }
+    }
     </style>
 </head>
 <body>
@@ -453,6 +501,11 @@
             <div class="hero-text">
                 <h2 class="highlight-text" data-lang="highlight-1">大厂AI编程教练</h2>
                 <h2 class="highlight-text" data-lang="highlight-2">新算法质生产力</h2>
+            </div>
+            
+            <div class="deadline-banner">
+                <p class="deadline-text">申请截止日期: 3月31日</p>
+                <p class="deadline-subtext">名额有限，<a href="job-swe-intern.html" class="deadline-link">立即申请</a>以确保您的位置！</p>
             </div>
             
             <img src="assets/app banner v3.jpg" alt="App Banner" class="app-banner">
