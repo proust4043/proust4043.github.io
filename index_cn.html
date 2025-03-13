@@ -480,6 +480,111 @@
             font-size: 1rem;
         }
     }
+
+    /* Dropdown menu styles */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .dropdown-content a {
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #e8f5e9;
+        color: var(--primary-color);
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropbtn {
+        cursor: pointer;
+    }
+
+    /* Job section styles */
+    .job-opportunities {
+        display: flex;
+        gap: 2rem;
+        margin: 2rem 0;
+        justify-content: center;
+    }
+
+    .job-card {
+        background: white;
+        border: 2px solid #4CAF50;
+        border-radius: 15px;
+        padding: 2rem;
+        flex: 1;
+        max-width: 400px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .job-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+    }
+
+    .job-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .job-card p {
+        color: #666;
+        margin-bottom: 1.5rem;
+    }
+
+    .job-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .job-link:hover {
+        background-color: var(--secondary-color);
+    }
+
+    .deadline-reminder {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 2rem;
+        color: #e74c3c;
+    }
+
+    @media (max-width: 768px) {
+        .job-opportunities {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .job-card {
+            width: 100%;
+        }
+    }
     </style>
 </head>
 <body>
@@ -490,6 +595,13 @@
                 <li><a href="#home" data-lang="nav-home">主页</a></li>
                 <li><a href="#about" data-lang="nav-about">关于</a></li>
                 <li><a href="#contact" data-lang="nav-contact">联系我们</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">招聘</a>
+                    <div class="dropdown-content">
+                        <a href="job-swe-intern.html">实习生</a>
+                        <a href="job-sales.html">销售</a>
+                    </div>
+                </li>
                 <li><a href="#" onclick="switchLanguage(event)" id="langToggle">中/ENG</a></li>
             </ul>
         </nav>
@@ -505,7 +617,7 @@
             
             <div class="deadline-banner">
                 <p class="deadline-text">申请截止日期: 3月31日</p>
-                <p class="deadline-subtext">名额有限，<a href="job-swe-intern.html" class="deadline-link">立即申请</a>以确保您的位置！</p>
+                <p class="deadline-subtext">名额有限，申请<a href="job-swe-intern.html" class="deadline-link">实习生</a>或<a href="job-sales.html" class="deadline-link">销售</a>职位！</p>
             </div>
             
             <img src="assets/app banner v3.jpg" alt="App Banner" class="app-banner">
@@ -638,6 +750,27 @@
                     <p data-lang="feature-4-desc">通过有趣的挑战提升算法能力</p>
                 </div>
             </div>
+        </section>
+
+        <section id="join-team" class="animate__animated animate__fadeIn">
+            <h2 data-lang="join-title">加入我们的团队</h2>
+            <p data-lang="join-desc">我们正在寻找有才华的个人，帮助我们革新编程教育。加入我们的使命，让学习变得更加便捷和高效。</p>
+            
+            <div class="job-opportunities">
+                <div class="job-card">
+                    <h3>软件开发实习生</h3>
+                    <p>在移动应用开发和AI技术方面获得实践经验。适合学生和职业早期的开发人员。</p>
+                    <a href="job-swe-intern.html" class="job-link">了解更多</a>
+                </div>
+                
+                <div class="job-card">
+                    <h3>销售代表</h3>
+                    <p>通过基于佣金的销售机会推动我们的增长。合同价值从10,000美元到50,000美元，可赚取高达20%的佣金。</p>
+                    <a href="job-sales.html" class="job-link">了解更多</a>
+                </div>
+            </div>
+            
+            <p class="deadline-reminder">所有职位申请截止日期：3月31日</p>
         </section>
 
         <section id="about" class="animate__animated animate__fadeIn">
