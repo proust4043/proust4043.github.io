@@ -1,395 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding Flora</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <style>
-        :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #45a049;
-            --text-color: #333;
-            --background-color: #f8f9fa;
-            --section-padding: 4rem 2rem;
-        }
+      :root {
+        --primary-color: #4caf50;
+        --secondary-color: #45a049;
+        --text-color: #333;
+        --background-color: #f8f9fa;
+        --section-padding: 4rem 2rem;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        /* box-sizing: border-box; */
+        overflow-x: hidden;
+      }
 
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+      }
 
-        .logo {
-            font-size: 2rem;
-            color: white;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-        }
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        padding: 1rem 2rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
 
-        .main-title {
-            font-size: 4rem;
-            margin: 2rem 0;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 4px 4px 8px rgba(0,0,0,0.1);
+        @media only screen and (max-width: 500px) {
+          display: flex;
+          justify-content: center;
         }
+      }
 
-        .hero-text {
-            text-align: center;
-            margin: 3rem 0;
+      .logo {
+        font-size: 2rem;
+        color: white;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+      }
+
+      .main-title {
+        font-size: 4rem;
+        margin: 2rem 0;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+
+        @media only screen and (max-width: 500px) {
+          font-size: 3rem;
         }
+      }
 
-        .highlight-text {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.4;
-            color: var(--text-color);
-            margin: 0.5rem 0;
-            transition: transform 0.3s;
+      .hero-text {
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .highlight-text {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--text-color);
+        margin: 0.5rem 0;
+        transition: transform 0.3s;
+
+        @media only screen and (max-width: 500px) {
+          font-size: 2.5rem;
         }
+      }
 
-        .highlight-text:hover {
-            transform: scale(1.05);
+      .highlight-text:hover {
+        transform: scale(1.05);
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.5rem;
+
+        @media only screen and (max-width: 500px) {
+          display: none;
         }
+      }
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.5rem;
+      nav ul {
+        display: flex;
+        justify-content: flex-end;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity 0.3s;
+      }
+
+      nav ul li a:hover {
+        opacity: 0.8;
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 80px auto 0;
+        padding: 2rem;
+
+        @media only screen and (max-width: 500px) {
+          padding: 0.5rem;
         }
+      }
 
-        nav ul {
-            display: flex;
-            justify-content: flex-end;
-            list-style: none;
-            gap: 2rem;
+      section {
+        padding: var(--section-padding);
+        margin-bottom: 2rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        color: var(--text-color);
+      }
+
+      .app-showcase {
+        margin: 3rem 0;
+      }
+
+      .app-banner,
+      .app-screens {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s;
+      }
+
+      .app-banner:hover,
+      .app-screens:hover {
+        transform: translateY(-5px);
+      }
+
+      @media (max-width: 768px) {
+        .app-banner,
+        .app-screens {
+          max-width: 100%;
+          padding: 0 1rem;
+          margin: 1rem auto;
         }
+      }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
+      iframe,
+      embed,
+      video {
+        width: 100%;
+        max-width: 1000px;
+        height: 600px;
+        margin: 3rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
 
-        nav ul li a:hover {
-            opacity: 0.8;
-        }
+      ul {
+        list-style-position: inside;
+        margin: 1rem 0;
+      }
 
-        main {
-            max-width: 1200px;
-            margin: 80px auto 0;
-            padding: 2rem;
-        }
+      ul li {
+        margin: 0.5rem 0;
+        padding-left: 1rem;
+      }
 
-        section {
-            padding: var(--section-padding);
-            margin-bottom: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
 
-        h1, h2, h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
+      a:hover {
+        color: var(--secondary-color);
+      }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
+      .main-nav {
+        margin-left: auto;
+      }
 
-        h2 {
-            font-size: 2rem;
-            margin-top: 2rem;
-        }
+      .main-nav ul {
+        display: flex;
+        gap: 3rem;
+      }
 
-        h3 {
-            font-size: 1.5rem;
-            color: var(--text-color);
-        }
+      .pricing-boxes {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 3rem 0;
+      }
 
-        .app-showcase {
-            margin: 3rem 0;
-        }
+      .price-box {
+        flex: 1;
+        max-width: 300px;
+        padding: 2rem;
+        background: linear-gradient(145deg, #ffffff, #e8f5e9);
+        border-radius: 15px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
 
-        .app-banner, .app-screens {
-            width: 100%;
-            max-width: 800px;
-            margin: 2rem auto;
-            display: block;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            transition: transform 0.3s;
-        }
+      .price-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+      }
 
-        .app-banner:hover, .app-screens:hover {
-            transform: translateY(-5px);
-        }
+      .price-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
 
-        @media (max-width: 768px) {
-            .app-banner, .app-screens {
-                max-width: 100%;
-                padding: 0 1rem;
-                margin: 1rem auto;
-            }
-        }
+      .price-box h3 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+      }
 
-        iframe, embed, video {
-            width: 100%;
-            max-width: 1000px;
-            height: 600px;
-            margin: 3rem auto;
-            display: block;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-        }
+      .price-box p {
+        color: #666;
+        font-size: 1.1rem;
+      }
 
-        ul {
-            list-style-position: inside;
-            margin: 1rem 0;
-        }
-
-        ul li {
-            margin: 0.5rem 0;
-            padding-left: 1rem;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: var(--secondary-color);
-        }
-
-        .main-nav {
-            margin-left: auto;
-        }
-
-        .main-nav ul {
-            display: flex;
-            gap: 3rem;
-        }
-
+      @media (max-width: 768px) {
         .pricing-boxes {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 3rem 0;
+          flex-direction: column;
+          align-items: center;
         }
 
         .price-box {
-            flex: 1;
-            max-width: 300px;
-            padding: 2rem;
-            background: linear-gradient(145deg, #ffffff, #e8f5e9);
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+          width: 100%;
+        }
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin: 2rem 0;
+
+        @media only screen and (max-width: 500px) {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+      .feature-item {
+        padding: 2rem;
+        background: #e8f5e9;
+        border-radius: 12px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+      }
+
+      .feature-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(76, 175, 80, 0.15);
+      }
+
+      .feature-item h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+      }
+
+      .feature-item p {
+        color: #555;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+      .comparison-table-container {
+        margin: 3rem auto;
+        padding: 2rem;
+        background: linear-gradient(to bottom right, #f8f9fa, #ffffff);
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+
+        @media only screen and (max-width: 500px) {
+          box-shadow: none;
+          padding: 0;
+          margin: 0;
+          background: transparent;
+        }
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 10px;
+        /* overflow: hidden; */
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 1.5rem;
+        text-align: center;
+        border: 2px solid var(--primary-color);
+      }
+
+      .comparison-table th {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .comparison-table tr:hover {
+        background-color: #e8f5e9;
+        transition: background-color 0.3s ease;
+      }
+
+      .comparison-table td:first-child {
+        font-weight: bold;
+        color: var(--primary-color);
+        text-align: left;
+      }
+
+      .check-mark {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .table-title {
+        text-align: center;
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        nav ul {
+          justify-content: center;
+          gap: 1rem;
         }
 
-        .price-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+        h1 {
+          font-size: 2rem;
         }
 
-        .price-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        section {
+          padding: 2rem 1.5rem;
         }
-
-        .price-box h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .price-box p {
-            color: #666;
-            font-size: 1.1rem;
-        }
-        
-
-        @media (max-width: 768px) {
-            .pricing-boxes {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .price-box {
-                width: 100%;
-            }
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .feature-item {
-            padding: 2rem;
-            background: #e8f5e9;
-            border-radius: 12px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.15);
-        }
-
-        .feature-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-
-        .feature-item p {
-            color: #555;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        .comparison-table-container {
-            margin: 3rem auto;
-            padding: 2rem;
-            background: linear-gradient(to bottom right, #f8f9fa, #ffffff);
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
+      }
+      @media (max-width: 500px) {
         .comparison-table th,
         .comparison-table td {
-            padding: 1.5rem;
-            text-align: center;
-            border: 2px solid var(--primary-color);
-        }
-
-        .comparison-table th {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .comparison-table tr:hover {
-            background-color: #e8f5e9;
-            transition: background-color 0.3s ease;
-        }
-
-        .comparison-table td:first-child {
-            font-weight: bold;
-            color: var(--primary-color);
-            text-align: left;
-        }
-
-        .check-mark {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            font-weight: bold;
+          padding: 0.5rem;
+          font-size: 0.8rem;
         }
 
         .table-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            font-weight: bold;
+          font-size: 1.3rem;
         }
+      }
 
-        @media (max-width: 768px) {
-            nav ul {
-                justify-content: center;
-                gap: 1rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 2rem 1rem;
-            }
-        }
-        @media (max-width: 768px) {
-            .comparison-table th,
-            .comparison-table td {
-                padding: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .table-title {
-                font-size: 1.5rem;
-            }
-        }
-
-        .platform-features {
+      .platform-features {
         margin: 3rem auto;
         display: flex;
         flex-direction: column;
         gap: 2rem;
         max-width: 900px;
-    }
+      }
 
-    .platform-box {
+      .platform-box {
         background: white;
-        border: 2px solid #4CAF50;
+        border: 2px solid #4caf50;
         border-radius: 15px;
         padding: 2rem;
         display: flex;
         align-items: center;
         gap: 2rem;
         transition: transform 0.3s ease;
-    }
+      }
 
-    .platform-box:hover {
+      .platform-box:hover {
         transform: translateY(-5px);
         box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
-    }
+      }
 
-    .platform-icon {
+      .platform-icon {
         width: 60px;
         height: 60px;
         display: flex;
@@ -397,44 +458,44 @@
         justify-content: center;
         border-radius: 12px;
         background: #e8f5e9;
-    }
+      }
 
-    .platform-icon svg {
+      .platform-icon svg {
         width: 40px;
         height: 40px;
-    }
+      }
 
-    .platform-content {
+      .platform-content {
         flex: 1;
-    }
+      }
 
-    .platform-name {
+      .platform-name {
         font-size: 1.5rem;
         font-weight: bold;
         color: #333;
         margin-bottom: 0.5rem;
-    }
+      }
 
-    .platform-desc {
+      .platform-desc {
         color: #666;
         font-size: 1.1rem;
         line-height: 1.4;
-    }
+      }
 
-    @media (max-width: 768px) {
+      @media (max-width: 768px) {
         .platform-box {
-            flex-direction: column;
-            text-align: center;
-            padding: 1.5rem;
+          flex-direction: column;
+          text-align: center;
+          padding: 1.5rem;
         }
 
         .platform-icon {
-            margin: 0 auto;
+          margin: 0 auto;
         }
-    }
+      }
 
-    .deadline-banner {
-        background: linear-gradient(135deg, #6ab04c, #4CAF50);
+      .deadline-banner {
+        background: linear-gradient(135deg, #6ab04c, #4caf50);
         color: white;
         padding: 1.5rem;
         border-radius: 10px;
@@ -443,117 +504,117 @@
         max-width: 800px;
         box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
         transition: transform 0.3s ease;
-    }
+      }
 
-    .deadline-banner:hover {
+      .deadline-banner:hover {
         transform: translateY(-5px);
-    }
+      }
 
-    .deadline-text {
+      .deadline-text {
         font-size: 1.8rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
-    }
+      }
 
-    .deadline-subtext {
+      .deadline-subtext {
         font-size: 1.2rem;
         font-weight: 500;
-    }
+      }
 
-    .deadline-link {
+      .deadline-link {
         color: white;
         text-decoration: underline;
         font-weight: bold;
         transition: color 0.3s ease;
-    }
+      }
 
-    .deadline-link:hover {
+      .deadline-link:hover {
         color: #e8f5e9;
-    }
+      }
 
-    @media (max-width: 768px) {
+      @media (max-width: 768px) {
         .deadline-text {
-            font-size: 1.4rem;
+          font-size: 1.4rem;
         }
-        
-        .deadline-subtext {
-            font-size: 1rem;
-        }
-    }
 
-    /* Dropdown menu styles */
-    .dropdown {
+        .deadline-subtext {
+          font-size: 1rem;
+        }
+      }
+
+      /* Dropdown menu styles */
+      .dropdown {
         position: relative;
         display: inline-block;
-    }
+      }
 
-    .dropdown-content {
+      .dropdown-content {
         display: none;
         position: absolute;
         background-color: white;
         min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
         border-radius: 5px;
         overflow: hidden;
-    }
+      }
 
-    .dropdown-content a {
+      .dropdown-content a {
         color: #333;
         padding: 12px 16px;
         text-decoration: none;
         display: block;
         transition: background-color 0.3s;
-    }
+      }
 
-    .dropdown-content a:hover {
+      .dropdown-content a:hover {
         background-color: #e8f5e9;
         color: var(--primary-color);
-    }
+      }
 
-    .dropdown:hover .dropdown-content {
+      .dropdown:hover .dropdown-content {
         display: block;
-    }
+      }
 
-    .dropbtn {
+      .dropbtn {
         cursor: pointer;
-    }
+      }
 
-    /* Job section styles */
-    .job-opportunities {
+      /* Job section styles */
+      .job-opportunities {
         display: flex;
         gap: 2rem;
         margin: 2rem 0;
         justify-content: center;
-    }
+      }
 
-    .job-card {
+      .job-card {
         background: white;
-        border: 2px solid #4CAF50;
+        border: 2px solid #4caf50;
         border-radius: 15px;
         padding: 2rem;
         flex: 1;
         max-width: 400px;
         text-align: center;
         transition: transform 0.3s, box-shadow 0.3s;
-    }
+      }
 
-    .job-card:hover {
+      .job-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
-    }
+      }
 
-    .job-card h3 {
+      .job-card h3 {
         color: var(--primary-color);
         margin-bottom: 1rem;
-    }
+      }
 
-    .job-card p {
+      .job-card p {
         color: #666;
         margin-bottom: 1.5rem;
-    }
+      }
 
-    .job-link {
+      .job-link {
         display: inline-block;
         padding: 10px 20px;
         background-color: var(--primary-color);
@@ -562,294 +623,363 @@
         border-radius: 5px;
         font-weight: bold;
         transition: background-color 0.3s;
-    }
+      }
 
-    .job-link:hover {
+      .job-link:hover {
         background-color: var(--secondary-color);
-    }
+      }
 
-    .deadline-reminder {
+      .deadline-reminder {
         text-align: center;
         font-weight: bold;
         margin-top: 2rem;
         color: #e74c3c;
-    }
+      }
 
-    @media (max-width: 768px) {
+      @media (max-width: 768px) {
         .job-opportunities {
-            flex-direction: column;
-            align-items: center;
+          flex-direction: column;
+          align-items: center;
         }
 
         .job-card {
-            width: 100%;
+          /* width: 100%; */
         }
-    }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="logo">Coding Flora</div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#home" data-lang="nav-home">Home</a></li>
-                <li><a href="#about" data-lang="nav-about">About</a></li>
-                <li><a href="#contact" data-lang="nav-contact">Contact Us</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Jobs</a>
-                    <div class="dropdown-content">
-                        <a href="job-swe-intern.html">Software</a>
-                        <a href="job-sales.html">Sales</a>
-                    </div>
-                </li>
-                <li><a href="#" onclick="switchLanguage(event)" id="langToggle">ENG/中</a></li>
-            </ul>
-        </nav>
+      <div class="logo">Coding Flora</div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#home" data-lang="nav-home">Home</a></li>
+          <li><a href="#about" data-lang="nav-about">About</a></li>
+          <li><a href="#contact" data-lang="nav-contact">Contact Us</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Jobs</a>
+            <div class="dropdown-content">
+              <a href="job-swe-intern.html">Software</a>
+              <a href="job-sales.html">Sales</a>
+            </div>
+          </li>
+          <li>
+            <a href="#" onclick="switchLanguage(event)" id="langToggle"
+              >ENG/中</a
+            >
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <section id="home" class="animate__animated animate__fadeIn">
-            <h1 class="main-title" data-lang="main-title">Coding Flora</h1>
-            <div class="hero-text">
-                <h2 class="highlight-text" data-lang="highlight-1">AI Coding Coach for Big Tech</h2>
-                <h2 class="highlight-text" data-lang="highlight-2">New Algorithm Productivity</h2>
+      <section id="home" class="animate__animated animate__fadeIn">
+        <h1 class="main-title" data-lang="main-title">Coding Flora</h1>
+        <div class="hero-text">
+          <h2 class="highlight-text" data-lang="highlight-1">
+            AI Coding Coach for Big Tech
+          </h2>
+          <h2 class="highlight-text" data-lang="highlight-2">
+            New Algorithm Productivity
+          </h2>
+        </div>
+
+        <div class="deadline-banner">
+          <p class="deadline-text">Application Deadline: March 31st</p>
+          <p class="deadline-subtext">
+            Limited spots available. Apply for
+            <a href="job-swe-intern.html" class="deadline-link">Software</a> or
+            <a href="job-sales.html" class="deadline-link">Sales</a> positions!
+          </p>
+        </div>
+
+        <img
+          src="assets/app banner v3.jpg"
+          alt="App Banner"
+          class="app-banner"
+        />
+        <img
+          src="assets/app_screens_v2.png"
+          alt="App Screens"
+          class="app-screens"
+        />
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/U8USYv7HW8M"
+            width="100%"
+            height="600"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div
+          class="comparison-table-container animate__animated animate__fadeIn"
+        >
+          <h2 class="table-title">Platform function comparison</h2>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Features</th>
+                <th>Leetcode</th>
+                <th>Chat GPT</th>
+                <th>Coding Flora</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Good questions</td>
+                <td><span class="check-mark">✓</span></td>
+                <td></td>
+                <td><span class="check-mark">✓</span></td>
+              </tr>
+              <tr>
+                <td>Personalized answers</td>
+                <td></td>
+                <td><span class="check-mark">✓</span></td>
+                <td><span class="check-mark">✓</span></td>
+              </tr>
+              <tr>
+                <td>AI Coach</td>
+                <td></td>
+                <td></td>
+                <td><span class="check-mark">✓</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="platform-features animate__animated animate__fadeIn">
+          <div class="platform-box">
+            <div class="platform-icon">
+              <img
+                src="assets/IMG_0435.jpg"
+                alt="Question Bank Icon"
+                width="80"
+                height="80"
+                style="border-radius: 12px; object-fit: cover"
+              />
             </div>
-            
-            <div class="deadline-banner">
-                <p class="deadline-text">Application Deadline: March 31st</p>
-                <p class="deadline-subtext">Limited spots available. Apply for <a href="job-swe-intern.html" class="deadline-link">Software</a> or <a href="job-sales.html" class="deadline-link">Sales</a> positions!</p>
+            <div class="platform-content">
+              <div class="platform-name">Leetcode</div>
+              <div class="platform-desc">
+                Comprehensive question sets, but lacks guided learning and
+                personalized feedback.
+              </div>
             </div>
-            
-            <img src="assets/app banner v3.jpg" alt="App Banner" class="app-banner">
-            <img src="assets/app_screens_v2.png" alt="App Screens" class="app-screens">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/U8USYv7HW8M"
-                        width="100%"
-                        height="600"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                </iframe>
+          </div>
+
+          <div class="platform-box">
+            <div class="platform-icon">
+              <img
+                src="assets/chatgpt-7977357_1280.webp"
+                alt="AI Chat"
+                width="80"
+                height="80"
+              />
             </div>
-
-            <div class="comparison-table-container animate__animated animate__fadeIn">
-                <h2 class="table-title">Platform function comparison</h2>
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Features</th>
-                            <th>Leetcode</th>
-                            <th>Chat GPT</th>
-                            <th>Coding Flora</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Good questions</td>
-                            <td><span class="check-mark">✓</span></td>
-                            <td></td>
-                            <td><span class="check-mark">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>Personalized answers</td>
-                            <td></td>
-                            <td><span class="check-mark">✓</span></td>
-                            <td><span class="check-mark">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>AI Coach</td>
-                            <td></td>
-                            <td></td>
-                            <td><span class="check-mark">✓</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="platform-content">
+              <div class="platform-name">Chat GPT</div>
+              <div class="platform-desc">
+                Smart AI responses but requires users to know what to ask. No
+                structured learning path.
+              </div>
             </div>
+          </div>
 
-            <div class="platform-features animate__animated animate__fadeIn">
-                <div class="platform-box">
-                    <div class="platform-icon">
-                        <img 
-                            src="assets/IMG_0435.jpg" 
-                            alt="Question Bank Icon"
-                            width="80"
-                            height="80"
-                            style="border-radius: 12px; object-fit: cover;"
-                        />
-                    </div>
-                    <div class="platform-content">
-                        <div class="platform-name">Leetcode</div>
-                        <div class="platform-desc">Comprehensive question sets, but lacks guided learning and personalized feedback.</div>
-                    </div>
-                </div>
-            
-                <div class="platform-box">
-                    <div class="platform-icon">
-                        <img 
-                          src="assets/chatgpt-7977357_1280.webp" 
-                          alt="AI Chat"
-                          width="80"
-                          height="80"
-                        />
-                    </div>
-                    <div class="platform-content">
-                        <div class="platform-name">Chat GPT</div>
-                        <div class="platform-desc">Smart AI responses but requires users to know what to ask. No structured learning path.</div>
-                    </div>
-                </div>
-            
-                <div class="platform-box">
-                    <div class="platform-icon">
-                        <img 
-                            src="assets/app_icon_v2.png" 
-                            alt="Coding Flora Icon" 
-                            style="width: 80px; height: 80px;"
-                        />
-                    </div>
-                    <div class="platform-content">
-                        <div class="platform-name">Coding Flora</div>
-                        <div class="platform-desc">Your personal AI coding mentor: combining curated problems with intelligent guidance for a perfect learning journey.</div>
-                    </div>
-                </div>
+          <div class="platform-box">
+            <div class="platform-icon">
+              <img
+                src="assets/app_icon_v2.png"
+                alt="Coding Flora Icon"
+                style="width: 80px; height: 80px"
+              />
             </div>
-
-
-
-            <div class="pricing-boxes">
-                <div class="price-box">
-                    <div class="price-icon">💰</div>
-                    <h3 data-lang="price-affordable">Affordable Pricing</h3>
-                    <p data-lang="price-affordable-desc">Start for free, upgrade as needed</p>
-                </div>
-                <div class="price-box">
-                    <div class="price-icon">⏰</div>
-                    <h3 data-lang="price-flexible">Flexible Schedule</h3>
-                    <p data-lang="price-flexible-desc">Learn anytime, control your own pace</p>
-                </div>
-                <div class="price-box">
-                    <div class="price-icon">📱</div>
-                    <h3 data-lang="price-available">Always Available</h3>
-                    <p data-lang="price-available-desc">Multi-platform support, learn anywhere</p>
-                </div>
+            <div class="platform-content">
+              <div class="platform-name">Coding Flora</div>
+              <div class="platform-desc">
+                Your personal AI coding mentor: combining curated problems with
+                intelligent guidance for a perfect learning journey.
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h3 data-lang="feature-1-title">Personalized AI Review</h3>
-                    <p data-lang="feature-1-desc">Using AI technology to create customized learning plans for you</p>
-                </div>
-                <div class="feature-item">
-                    <h3 data-lang="feature-2-title">Cultivate Algorithm Garden</h3>
-                    <p data-lang="feature-2-desc">Visualize your learning progress, make improvements more rewarding</p>
-                </div>
-                <div class="feature-item">
-                    <h3 data-lang="feature-3-title">Community Interaction</h3>
-                    <p data-lang="feature-3-desc">Share experiences with other learners, grow together</p>
-                </div>
-                <div class="feature-item">
-                    <h3 data-lang="feature-4-title">Challenge Mode</h3>
-                    <p data-lang="feature-4-desc">Improve algorithm skills through interesting challenges</p>
-                </div>
-            </div>
-        </section>
+        <div class="pricing-boxes">
+          <div class="price-box">
+            <div class="price-icon">💰</div>
+            <h3 data-lang="price-affordable">Affordable Pricing</h3>
+            <p data-lang="price-affordable-desc">
+              Start for free, upgrade as needed
+            </p>
+          </div>
+          <div class="price-box">
+            <div class="price-icon">⏰</div>
+            <h3 data-lang="price-flexible">Flexible Schedule</h3>
+            <p data-lang="price-flexible-desc">
+              Learn anytime, control your own pace
+            </p>
+          </div>
+          <div class="price-box">
+            <div class="price-icon">📱</div>
+            <h3 data-lang="price-available">Always Available</h3>
+            <p data-lang="price-available-desc">
+              Multi-platform support, learn anywhere
+            </p>
+          </div>
+        </div>
 
-        <section id="join-team" class="animate__animated animate__fadeIn">
-            <h2 data-lang="join-title">Join Our Team</h2>
-            <p data-lang="join-desc">We're looking for talented individuals to help us revolutionize coding education. Join our mission to make learning accessible and effective for everyone.</p>
-            
-            <div class="job-opportunities">
-                <div class="job-card">
-                    <h3>Software Development Internship</h3>
-                    <p>Gain hands-on experience in mobile app development and AI technology. Perfect for students and early-career developers.</p>
-                    <a href="job-swe-intern.html" class="job-link">Learn More</a>
-                </div>
-                
-                <div class="job-card">
-                    <h3>Sales Representative</h3>
-                    <p>Drive our growth with commission-based sales opportunities. Earn up to 20% commission on contracts ranging from $10,000 to $50,000.</p>
-                    <a href="job-sales.html" class="job-link">Learn More</a>
-                </div>
-            </div>
-            
-            <p class="deadline-reminder">Application deadline for all positions: March 31st</p>
-        </section>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3 data-lang="feature-1-title">Personalized AI Review</h3>
+            <p data-lang="feature-1-desc">
+              Using AI technology to create customized learning plans for you
+            </p>
+          </div>
+          <div class="feature-item">
+            <h3 data-lang="feature-2-title">Cultivate Algorithm Garden</h3>
+            <p data-lang="feature-2-desc">
+              Visualize your learning progress, make improvements more rewarding
+            </p>
+          </div>
+          <div class="feature-item">
+            <h3 data-lang="feature-3-title">Community Interaction</h3>
+            <p data-lang="feature-3-desc">
+              Share experiences with other learners, grow together
+            </p>
+          </div>
+          <div class="feature-item">
+            <h3 data-lang="feature-4-title">Challenge Mode</h3>
+            <p data-lang="feature-4-desc">
+              Improve algorithm skills through interesting challenges
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <section id="about" class="animate__animated animate__fadeIn">
-            <h2 data-lang="about-title">About Coding Flora</h2>
-            <p data-lang="about-desc">Coding Flora is an innovative AI-driven learning application dedicated to making algorithm learning more fun and efficient. We perfectly combine gamification elements with professional learning content to create a unique learning experience for you.</p>
-        </section>
+      <section id="join-team" class="animate__animated animate__fadeIn">
+        <h2 data-lang="join-title">Join Our Team</h2>
+        <p data-lang="join-desc">
+          We're looking for talented individuals to help us revolutionize coding
+          education. Join our mission to make learning accessible and effective
+          for everyone.
+        </p>
 
-        <section id="contact" class="animate__animated animate__fadeIn">
-            <h2 data-lang="contact-title">Contact Us</h2>
-            <p data-lang="contact-desc">We look forward to hearing from you! If you have any questions or suggestions, please contact us through:</p>
-            <p data-lang="contact-email">📧 Email: faradawn@codingflora.com</p>
-        </section>
+        <div class="job-opportunities">
+          <div class="job-card">
+            <h3>Software Development Internship</h3>
+            <p>
+              Gain hands-on experience in mobile app development and AI
+              technology. Perfect for students and early-career developers.
+            </p>
+            <a href="job-swe-intern.html" class="job-link">Learn More</a>
+          </div>
+
+          <div class="job-card">
+            <h3>Sales Representative</h3>
+            <p>
+              Drive our growth with commission-based sales opportunities. Earn
+              up to 20% commission on contracts ranging from $10,000 to $50,000.
+            </p>
+            <a href="job-sales.html" class="job-link">Learn More</a>
+          </div>
+        </div>
+
+        <p class="deadline-reminder">
+          Application deadline for all positions: March 31st
+        </p>
+      </section>
+
+      <section id="about" class="animate__animated animate__fadeIn">
+        <h2 data-lang="about-title">About Coding Flora</h2>
+        <p data-lang="about-desc">
+          Coding Flora is an innovative AI-driven learning application dedicated
+          to making algorithm learning more fun and efficient. We perfectly
+          combine gamification elements with professional learning content to
+          create a unique learning experience for you.
+        </p>
+      </section>
+
+      <section id="contact" class="animate__animated animate__fadeIn">
+        <h2 data-lang="contact-title">Contact Us</h2>
+        <p data-lang="contact-desc">
+          We look forward to hearing from you! If you have any questions or
+          suggestions, please contact us through:
+        </p>
+        <p data-lang="contact-email">📧 Email: faradawn@codingflora.com</p>
+      </section>
     </main>
 
     <script>
-        // Language configuration
-        const translations = {
-            'zh': {
-                // ... Chinese translations ...
-            },
-            'en': {
-                // ... English translations ...
-            }
-        };
+      // Language configuration
+      const translations = {
+        zh: {
+          // ... Chinese translations ...
+        },
+        en: {
+          // ... English translations ...
+        },
+      };
 
-        let currentLang = 'en';
+      let currentLang = "en";
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'zh' ? 'en' : 'zh';
-            updateContent();
-            document.getElementById('langToggle').textContent = currentLang === 'zh' ? '中/ENG' : 'ENG/中';
-            localStorage.setItem('preferred-language', currentLang);
+      function toggleLanguage() {
+        currentLang = currentLang === "zh" ? "en" : "zh";
+        updateContent();
+        document.getElementById("langToggle").textContent =
+          currentLang === "zh" ? "中/ENG" : "ENG/中";
+        localStorage.setItem("preferred-language", currentLang);
+      }
+
+      function updateContent() {
+        document.querySelectorAll("[data-lang]").forEach((element) => {
+          const key = element.getAttribute("data-lang");
+          if (translations[currentLang][key]) {
+            element.textContent = translations[currentLang][key];
+          }
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const storedLang = localStorage.getItem("preferred-language");
+        if (storedLang) {
+          currentLang = storedLang;
+          updateContent();
+          document.getElementById("langToggle").textContent =
+            currentLang === "zh" ? "中/ENG" : "ENG/中";
         }
 
-        function updateContent() {
-            document.querySelectorAll('[data-lang]').forEach(element => {
-                const key = element.getAttribute('data-lang');
-                if (translations[currentLang][key]) {
-                    element.textContent = translations[currentLang][key];
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const storedLang = localStorage.getItem('preferred-language');
-            if (storedLang) {
-                currentLang = storedLang;
-                updateContent();
-                document.getElementById('langToggle').textContent = currentLang === 'zh' ? '中/ENG' : 'ENG/中';
-            }
-
-            document.getElementById('langToggle').addEventListener('click', (e) => {
-                e.preventDefault();
-                toggleLanguage();
-            });
-
-            // Smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    if (!this.hasAttribute('onclick')) {
-                        e.preventDefault();
-                        document.querySelector(this.getAttribute('href'))?.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+        document.getElementById("langToggle").addEventListener("click", (e) => {
+          e.preventDefault();
+          toggleLanguage();
         });
 
-        function switchLanguage(event) {
-            event.preventDefault();
-            const currentPath = window.location.pathname;
-            
-            if (currentPath.endsWith('index.html') || currentPath === '/') {
-                window.location.href = 'index_cn.html';
-            } else if (currentPath.endsWith('index_cn.html')) {
-                window.location.href = 'index.html';
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            if (!this.hasAttribute("onclick")) {
+              e.preventDefault();
+              document
+                .querySelector(this.getAttribute("href"))
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                });
             }
+          });
+        });
+      });
+
+      function switchLanguage(event) {
+        event.preventDefault();
+        const currentPath = window.location.pathname;
+
+        if (currentPath.endsWith("index.html") || currentPath === "/") {
+          window.location.href = "index_cn.html";
+        } else if (currentPath.endsWith("index_cn.html")) {
+          window.location.href = "index.html";
         }
+      }
     </script>
-</body>
+  </body>
 </html>
